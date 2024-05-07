@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-4">
+    <h1>Welcome to Secret Hangman</h1>
+    <p>(facilitated by Nillion)</p>
+    <p>A Secret Hangman game consists of three parties that come together to trustlessly play:</p>
+    <ul>
+        <li><strong>The Gamemaster:</strong> We are the gamemaster. We facilitate games between word owners and word guessers. We will never know the word that a game was created with, we will never know what letters a word guesser inputs. We will only know how many slots a guesser's word found in a round and whether or not a guess won a game.</li>
+        <li><strong>The Word Owners:</strong> Word Owners start a game of hangman by secretly storing a word and verifying trustlessly that the word is valid according to the rules of the game. They can know when a player has started a game and if a player won.</li>
+        <li><strong>The Word Guessers:</strong> Can choose to play a hangman game by starting a created game. They secretly store their chosen letter and inform the game master of this fact. The game master then informs them of the results of the round.</li>
+    </ul>
+    <h3>Rules</h3>
+    <p>A submitted word can only be 10 characters long. Alphabets are represented by their positions (A is 1 and Z is 26).</p>
+    <p>A game consists of 19 attempts. If the word is not guessed within this number of attempts, the game ends and the guesser loses. If the guesser can successfully do this, they win.</p>
+</div>
+
+{% endblock %}
+
+

@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+
+{% block extra_styles  %}
+<style>
+    body {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
+    Helvetica, Arial, "Lucida Grande", sans-serif;
+  background-color: #5e8ef5;
+  color: white;
+  text-align: center;
+  height: 100%;
+  font-size: 18px;
+}
+
+.wrappper {
+  width: 100%;
+  margin: 0 auto;
+}
+
+canvas {
+  color: white;
+  border: white dashed 2px;
+  padding: 15px;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  text-transform: uppercase;
+  margin: 5px 0;
+}
+h1 {
+  font-size: 2.6em;
+}
+
+h2 {
+  font-size: 1.2em;
+}
+
+p {
+  font-size: 1.2em;
+}
+
+Button {
+  background: #5e8ef5;
+  border-radius: 5px;
+  border: solid 1px white;
+  color: white;
+  width: 35px;
+  height: 35px;
+  margin: 0 10px 10px 0;
+  outline: none;
+}
+Button:hover {
+  transition: 0.5s;
+  background: white;
+  border: solid 1px white;
+  color: #5e8ef5;
+}
+
+.selected {
+  background: white;
+  border: solid 1px white;
+  color: #5e8ef5;
+}
+
+.btn-2 {
+  border-radius: 10px;
+  background: #5e8ef5;
+  color: white;
+  border: solid 1px white;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 1.2em;
+  padding: 10px 10px;
+  width: 180px;
+  height: 50px;
+  margin: 0 10px 10px 0;
+
+  outline: none;
+}
+.btn-2:hover {
+  transition: 0.5s;
+  background: white;
+  border: solid 1px white;
+  color: #5e8ef5;
+}
+
+</style>
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="wrapper">
+    <h1>Secret Hangman #2</h1>
+    <p>
+      When you click a letter, you create a secret that gets stored on the nillion network,
+      you become the third party in a blind hangman computation to know whether your letter is valid or not
+    </p>
+    <p>
+        Unlike standard hangman you will lose a life, irrespective of whether you guess correctly or not.
+        In other words you only get 10 attempts
+      </p>
+  </div>
+
+  <div class="wrapper">
+    <div class="alphabetButton" id="alphabetButtons"></div>
+    <p id="word"> Word: {{word_thingy}}</p>
+    <p id="slots-filled"> Slots Filled so Far: {{slots_filled}}  </p>
+    <p id="slots-left"> Slots left to fill: {{slots_left}}  </p>
+
+    <p id="lives" data-value="10">  Attempts: 10 </p>
+    <canvas id="stickman"
+      > Browser does NOT support HTML5 Canvas
+      tag</canvas>
+  </div>
+
+  <script src="{{ url_for('static', filename='hangman_game.js') }}"></script>
+
+  {% endblock %}

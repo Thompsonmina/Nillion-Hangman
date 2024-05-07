@@ -1,0 +1,119 @@
+
+{% extends "base.html" %}
+
+{% block extra_styles  %}
+<style>
+    p {
+        color: #f2f4f5; /* Dark gray for subtle, readable text */
+    }
+    .card-header {
+        background-color: #e9ecef; /* Light gray header background */
+        color: #007bff; /* Header text color */
+    }
+    .card-body {
+        background-color: #ffffff; /* Ensures card body background is white */
+        color: #212529; 
+    }
+    .code-snippet {
+        background-color: #f8f9fa; /* Slightly off-white for less harsh contrast */
+        color: #212529; /* Dark color for the code to ensure readability */
+    }
+</style>
+{% endblock %}
+
+
+{% block content %}
+<div class="container mt-5">
+    <h1> Create a Hangman Game</h1>
+    
+    <div>
+    <h2>1.  Store Program</h2>
+    <p >
+        To create a hangman game, The game master needs to store a new instance of a hangman program on the 
+        nillion network. Below is the code that will be stored on nillion (you are free to inspect it)
+    </p>
+   
+    </div>
+
+    
+    
+    <div class="card" id="programCard">
+        <div class="card-header">
+            <div class="row align-items-center mb-2">
+                <div class="col-md-10">
+                    <span class="font-weight-bold">{{ program_store_program_name }}</span>
+                </div>
+                <div class="col-md-2 text-right" onclick="toggle_first_card('store-program-code')">
+                    <button data-codeid="store-program-code"  class="btn btn-info" type="button" data-toggle="collapse" data-target="#codeBlock" aria-expanded="false" aria-controls="codeBlock">
+                        Show/Hide Code
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="card-body" id="programCardBody">
+
+            <div class="code_block" id="store-program-code">
+                <pre><code class="language-python">{{ hangman_code | safe }}</code></pre>
+            </div>
+            
+            
+                <form id="storeProgramForm" class="form" onsubmit="submitProgram(event)">
+                    <div class="form-group mb-2 mr-sm-2">
+                        <label for="wordLength" class="sr-only">Word Length</label>
+                        <input type="number" class="form-control" id="wordLength" name="wordLength" placeholder="Word Length" min="1" max="10" required>
+                    </div>
+                    <div class="form-group mb-2 mr-sm-2">
+                        <label for="creatorName" class="sr-only">Creator Name</label>
+                        <input type="text" class="form-control" id="creatorName" name="creatorName" placeholder="Creator Name" required>
+                    </div>
+                <button class="btn btn-primary" id="storeProgramButton">Allow Game Master to Store Program</button>
+                </form>
+
+        </div>
+    </div>
+
+
+
+    <h2 class="pt-5">2. Store your Word and grant computation access </h2>
+    <p >
+        To create a hangman game you need to run the below script. This cli program takes in your credentials and your word
+        and stores a tranformed list of secret integers that represents your word to the nillion network. It will then generate a store id and your party id
+        copy these details and submit them back here to launch a new game.
+    </p>
+    <div class="card">
+
+        <div class="card-header">
+            <div class="row align-items-center mb-2">
+                <div class="col-md-10">
+                    <span class="font-weight-bold">{{ wordstore_program_name }}</span>
+                </div>
+                <div class="col-md-2 text-right" onclick="toggle_first_card('store-word-code')">
+                    <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#codeBlock" aria-expanded="false" aria-controls="codeBlock">
+                        Show/Hide Code
+                    </button>
+                </div>
+            </div>
+        </div>
+            <div  id="store-word-code">
+                <pre><code class="language-python">{{ store_code | safe }}</code></pre>
+            </div>
+            
+        
+
+        <form id="finaliseGameCreationForm" class="form" onsubmit="store_creator_gamedata(event)">
+            <div class="form-group mb-2 mr-sm-2">
+                <label for="party id" class="sr-only">Party ID</label>
+                <input type="text" class="form-control" id="creator-partyid" name="creator-partyid" placeholder="Your Generated Party ID" required>
+            </div>
+            <div class="form-group mb-2 mr-sm-2">
+                <label for="Store ID" class="sr-only">Store ID</label>
+                <input type="text" class="form-control" id="creator-storeid" name="creator-storeid" placeholder="Your Generated Store ID" required>
+            </div>
+        <button class="btn btn-primary" id="createGameButton"> Initialise New Hangman Game</button>
+        </form>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='hangman.js') }}"></script>
+
+{% endblock %}

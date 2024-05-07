@@ -1,0 +1,46 @@
+{
+  "5CmaQc9FLadgeX88j4vghoVAYzSyPQxEeM7Q9GPLm5xgJn9WdGfrAqhF95MqrM6n2ERgDksHQqraWfLfMTRTf4mm/hangman": {
+    "creator": {
+      "name": "red"
+    },
+    "status": "created",
+    "attempts_left_store_id": "7",
+    "gamemaster": {
+      "party_id": "12D3KooWLm5k5URp3AcBySRQk6ubzVPcGyD5WtD1Lox6DSo3SPJG",
+      "store_id": "ec14dc78-2306-4676-9331-f18cb687f1ca"
+    },
+    "number": 1
+  },
+  "2pvWozAEy9QrKX4Yy2Wypr4Adik6HLTTLTcWEwRKtGqWSAjiubb2osmvTGADTbUzgNkPuuMxgyeFzNUdGqDyEnM/hangman": {
+    "creator": {
+      "name": "dan"
+    },
+    "status": "created",
+    "attempts_left_store_id": "7",
+    "gamemaster": {
+      "party_id": "12D3KooWH7zCveCt78GWQRvHdARKeQta8LGLP6varkhWMqerr7hd",
+      "store_id": "5161812a-84e9-4f77-b2e0-c08f8ed0ac7f"
+    },
+    "word_length": "3",
+    "number": 2
+  },
+  "3EPkiXLTUNu9ZbsojDmXshzwW9fuA94nKfnWBPa8eQFp25UYek2b8hsR4Hi1EiXhVuvg3A8LUAbdSk1cL6kf8HG6/hangman": {
+    "creator": {
+      "name": "anna",
+      "store_id": "06006b43-3c97-4e98-af14-1caf61757f6e",
+      "party_id": "12D3KooWDYa55n1US9RKvwAL4ZKp3yXcN8cWZfVZP8wmuH6FSfZS"
+    },
+    "status": "in progress",
+    "attempts_left": "5",
+    "guessed": "4",
+    "gamemaster": {
+      "party_id": "12D3KooWQQPPRdi81JutBxg2zahq5BTZXW7wMmg8kijDRMeL84M7",
+      "store_id": "72aa2966-6e18-4967-adc4-d5c4eef4b90a"
+    },
+    "word_length": "5",
+    "number": 3,
+    "player": {
+      "name": "Thomas"
+    }
+  }
+}
